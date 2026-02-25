@@ -1247,7 +1247,7 @@ mod tests {
 
         // Identity precompile at address 0x04
         let identity_address = address!("0x0000000000000000000000000000000000000004");
-        let new_address = address!("0x0000000000000000000000000000000000000100");
+        let new_address = address!("0x0000000000000000000000000000000000001000");
         let test_input = Bytes::from_static(b"test data");
         let gas_limit = 1000;
 
@@ -1292,7 +1292,7 @@ mod tests {
         let mut spec_precompiles = PrecompilesMap::from(eth_precompiles);
 
         let non_precompile = address!("0x0000000000000000000000000000000000000099");
-        let dest = address!("0x0000000000000000000000000000000000000100");
+        let dest = address!("0x0000000000000000000000000000000000001000");
 
         let result = spec_precompiles.move_precompiles([(non_precompile, dest)]);
         assert_eq!(result, Err(MovePrecompileError::NotAPrecompile(non_precompile)));
@@ -1319,8 +1319,8 @@ mod tests {
 
         let ecrecover = address!("0x0000000000000000000000000000000000000001");
         let sha256 = address!("0x0000000000000000000000000000000000000002");
-        let new_ecrecover = address!("0x0000000000000000000000000000000000000101");
-        let new_sha256 = address!("0x0000000000000000000000000000000000000102");
+        let new_ecrecover = address!("0x0000000000000000000000000000000000001001");
+        let new_sha256 = address!("0x0000000000000000000000000000000000001002");
 
         spec_precompiles
             .move_precompiles([(ecrecover, new_ecrecover), (sha256, new_sha256)])
