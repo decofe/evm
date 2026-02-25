@@ -1240,7 +1240,7 @@ mod tests {
 
     #[test]
     fn test_move_precompiles() {
-        let eth_precompiles = EthPrecompiles::default();
+        let eth_precompiles = EthPrecompiles::new(SpecId::default());
         let mut spec_precompiles = PrecompilesMap::from(eth_precompiles);
 
         let mut ctx = EthEvmContext::new(EmptyDB::default(), Default::default());
@@ -1288,7 +1288,7 @@ mod tests {
 
     #[test]
     fn test_move_precompiles_not_a_precompile() {
-        let eth_precompiles = EthPrecompiles::default();
+        let eth_precompiles = EthPrecompiles::new(SpecId::default());
         let mut spec_precompiles = PrecompilesMap::from(eth_precompiles);
 
         let non_precompile = address!("0x0000000000000000000000000000000000000099");
@@ -1300,7 +1300,7 @@ mod tests {
 
     #[test]
     fn test_move_precompiles_same_address_noop() {
-        let eth_precompiles = EthPrecompiles::default();
+        let eth_precompiles = EthPrecompiles::new(SpecId::default());
         let mut spec_precompiles = PrecompilesMap::from(eth_precompiles);
 
         let identity_address = address!("0x0000000000000000000000000000000000000004");
@@ -1314,7 +1314,7 @@ mod tests {
 
     #[test]
     fn test_move_precompiles_multiple() {
-        let eth_precompiles = EthPrecompiles::default();
+        let eth_precompiles = EthPrecompiles::new(SpecId::default());
         let mut spec_precompiles = PrecompilesMap::from(eth_precompiles);
 
         let ecrecover = address!("0x0000000000000000000000000000000000000001");
