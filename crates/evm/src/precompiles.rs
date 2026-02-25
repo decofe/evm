@@ -971,11 +971,12 @@ mod tests {
         context::Block,
         database::EmptyDB,
         precompile::{PrecompileId, PrecompileOutput},
+        primitives::hardfork::SpecId,
     };
 
     #[test]
     fn test_map_precompile() {
-        let eth_precompiles = EthPrecompiles::default();
+        let eth_precompiles = EthPrecompiles::new(SpecId::default());
         let mut spec_precompiles = PrecompilesMap::from(eth_precompiles);
 
         let mut ctx = EthEvmContext::new(EmptyDB::default(), Default::default());
@@ -1119,7 +1120,7 @@ mod tests {
 
     #[test]
     fn test_precompile_lookup() {
-        let eth_precompiles = EthPrecompiles::default();
+        let eth_precompiles = EthPrecompiles::new(SpecId::default());
         let mut spec_precompiles = PrecompilesMap::from(eth_precompiles);
 
         let mut ctx = EthEvmContext::new(EmptyDB::default(), Default::default());
@@ -1176,7 +1177,7 @@ mod tests {
 
     #[test]
     fn test_get_precompile() {
-        let eth_precompiles = EthPrecompiles::default();
+        let eth_precompiles = EthPrecompiles::new(SpecId::default());
         let spec_precompiles = PrecompilesMap::from(eth_precompiles);
 
         let mut ctx = EthEvmContext::new(EmptyDB::default(), Default::default());
